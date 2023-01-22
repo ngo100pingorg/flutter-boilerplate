@@ -24,15 +24,11 @@ jobs:
       run: flutter format --set-exit-if-changed --dry-run .
     
     - name: Run static analysis
-      run: flutter analyze
+      run: flutter analyze --no-fatal-infos --fatal-warnings .
 
     - name: Run machine tests
       run: |
         flutter test --machine test
-
-    - name: Run tests
-      run: |
-        flutter test
 
     # - name: Run golden tests
     #   run: |

@@ -21,8 +21,8 @@ class LocaleApi {
   // The keys used for storing the locale locally.
   // This is only exposed for testing and shouldn't be used by consumers of this library.
   @visibleForTesting
-  static const kLanguageCodeCollectionKey = '__language_code_collection_key__';
-  static const kCountryCodeCollectionKey = '__country_code_collection_key__';
+  static const kLanguageCodeCollectionKey = '_language_code_collection_key';
+  static const kCountryCodeCollectionKey = '_country_code_collection_key';
 
   String? _getValue(String key) => _plugin.getString(key);
   Future<void> _setValue(String key, String value) =>
@@ -35,7 +35,7 @@ class LocaleApi {
       locale = Locale(languageCode, countryCode);
       return;
     }
-    locale = WidgetsBinding.instance.window.locales.first;
+    locale = WidgetsBinding.instance.platformDispatcher.locales.first;
     return;
   }
 

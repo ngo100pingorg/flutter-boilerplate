@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ThemeApi {
@@ -31,7 +30,8 @@ class ThemeApi {
       return;
     }
     bool isDeviceInLightThemeMode =
-        SchedulerBinding.instance.window.platformBrightness == Brightness.light;
+        WidgetsBinding.instance.platformDispatcher.platformBrightness ==
+            Brightness.light;
     _isLightThemeMode = isDeviceInLightThemeMode;
     _setValue(kThemeCollectionKey, isDeviceInLightThemeMode);
   }

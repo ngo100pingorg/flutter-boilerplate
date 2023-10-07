@@ -17,9 +17,6 @@ class IoFile implements UniversalFile {
   Future getDataPath() async {
     if (_hasDataPath) return;
     _hasDataPath = true;
-    // if running tests then uncomment the following line
-    // String supportDir = './test/fixtures/core';
-    // if running tests then comment the following line
     String supportDir = (await getApplicationSupportDirectory()).path;
     dataPath = Directory(supportDir);
     await createDirIfNotExists(dataPath);
@@ -44,9 +41,11 @@ class IoFile implements UniversalFile {
     //Create directory if it doesn't exist
     if (!await dir.exists()) {
       //Catch error since disk io can always fail.
-      await dir.create(recursive: true).catchError((e, stack) {
-        return Directory(".");
-      });
+      try {
+        await dir.create(recursive: true);
+      } catch (e) {
+        rethrow;
+      }
     }
   }
 }

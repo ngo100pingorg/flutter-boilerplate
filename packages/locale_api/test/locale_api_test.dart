@@ -23,7 +23,7 @@ void main() {
     'test init Function when no value found locally (in stored prefs)',
     () async {
       localeApi.initLocale();
-      expect(localeApi.locale, equals(const Locale('en')));
+      expect(localeApi.locale, equals(const Locale('en', 'US')));
     },
   );
 
@@ -32,7 +32,7 @@ void main() {
     () async {
       localeApi.initLocale();
       localeApi.initLocale();
-      expect(localeApi.locale, equals(const Locale('en')));
+      expect(localeApi.locale, equals(const Locale('en', 'US')));
     },
   );
 

@@ -1,8 +1,7 @@
-import 'package:colorize/colorize.dart';
 import 'package:flutter/material.dart';
 
 class Console {
-  static void printChunks(Colorize text) {
+  static void printChunks(dynamic text) {
     final RegExp pattern = RegExp('.{1,800}'); // 800 is the size of each chunk
     pattern
         .allMatches(text.toString())
@@ -10,60 +9,38 @@ class Console {
   }
 
   static void log(String text, [data]) {
-    Colorize txt = Colorize(text);
-    Console.printChunks(txt);
-
+    Console.printChunks(text);
     if (data != null) {
-      Colorize dataColor = Colorize(data.toString());
-      Console.printChunks(dataColor);
+      Console.printChunks(data);
     }
   }
 
   static void info(String text, [data]) {
-    Colorize txt = Colorize(text);
-    txt.blue();
-    Console.printChunks(txt);
-
+    Console.printChunks(text);
     if (data != null) {
-      Colorize dataColor = Colorize(data.toString());
-      dataColor.blue();
-      Console.printChunks(dataColor);
+      Console.printChunks(data);
     }
   }
 
   static void success(String text, [data]) {
-    Colorize txt = Colorize(text);
-    txt.green();
-    Console.printChunks(txt);
+    Console.printChunks(text);
 
     if (data != null) {
-      Colorize dataColor = Colorize(data.toString());
-      dataColor.green();
-      Console.printChunks(dataColor);
+      Console.printChunks(data);
     }
   }
 
   static void warning(String text, [data]) {
-    Colorize txt = Colorize(text);
-    txt.yellow();
-    Console.printChunks(txt);
-
+    Console.printChunks(text);
     if (data != null) {
-      Colorize dataColor = Colorize(data.toString());
-      dataColor.yellow();
-      Console.printChunks(dataColor);
+      Console.printChunks(data);
     }
   }
 
   static void danger(String text, [data]) {
-    Colorize txt = Colorize(text);
-    txt.red();
-    Console.printChunks(txt);
-
+    Console.printChunks(text);
     if (data != null) {
-      Colorize dataColor = Colorize(data.toString());
-      dataColor.red();
-      Console.printChunks(dataColor);
+      Console.printChunks(data);
     }
   }
 }

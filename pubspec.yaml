@@ -18,8 +18,7 @@ dependencies:
 
   # Date and Time
   intl: ^0.18.1
-  # Console Log
-  colorize: ^3.0.0
+
   # State management
   equatable: ^2.0.5
   flutter_bloc: ^8.1.3

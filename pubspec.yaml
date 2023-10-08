@@ -28,6 +28,8 @@ dependencies:
     sdk: flutter
 
   # Local APIs
+  log_api:
+    path: packages/log_api
   locale_api:
     path: packages/locale_api
   theme_api:

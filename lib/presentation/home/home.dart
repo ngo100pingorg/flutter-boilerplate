@@ -28,7 +28,7 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           // Dropdown to change language
-          const LanguageSelector(),
+          const Center(child: LanguageSelector()),
         ],
       ),
     );
@@ -50,22 +50,22 @@ class _LanguageSelectorState extends State<LanguageSelector>
     return BlocBuilder<LocaleBloc, LocaleState>(
       builder: (context, state) => DropdownButton(
         value: state.locale,
-        items: [
-          DropdownMenuItem(
-            value: const Locale('en'),
-            child: Text(translations.enLanguageName),
-          ),
-          DropdownMenuItem(
-            value: const Locale('hi', 'IN'),
-            child: Text(translations.hiLanguageName),
-          ),
-        ],
+        items: L10n.all
+            .map(
+              (locale) => DropdownMenuItem(
+                value: locale,
+                child: Text(
+                  L10n.getLanguageTranslation(context, locale.languageCode),
+                ),
+              ),
+            )
+            .toList(),
         onChanged: (locale) {
           if (locale != null) {
             context.read<LocaleBloc>().add(ChangeLocaleEvent(locale: locale));
           }
         },
-        isExpanded: true,
+        isExpanded: false,
         underline: const SizedBox(),
       ),
     );

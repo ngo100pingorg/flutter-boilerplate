@@ -1,10 +1,17 @@
-import '../config/app_config.dart';
 import 'console_log.dart';
 import 'local_log.dart';
 
-class Log {
-  static final bool _writeConsoleLog = AppConfig.config.enableConsoleLog;
-  static final bool _writeLocalLog = AppConfig.config.enableLocalLog;
+abstract class Log {
+  static bool _writeConsoleLog = true;
+  static bool _writeLocalLog = true;
+
+  static void setConfiguration({
+    bool enableConsoleLog = true,
+    bool enableLocalLog = true,
+  }) {
+    _writeConsoleLog = enableConsoleLog;
+    _writeLocalLog = enableLocalLog;
+  }
 
   static void log(
     String text, {

@@ -3,10 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-import '../../bloc/bloc/locale_bloc/locale_bloc.dart';
-import '../../bloc/bloc/theme_bloc/theme_bloc.dart';
 import '../../_internal/config/app_config.dart';
 import '../../_internal/theme/theme.dart';
+import '../../bloc/bloc/locale_bloc/locale_bloc.dart';
+import '../../bloc/bloc/theme_bloc/theme_bloc.dart';
 import '../../l10n/l10n.dart';
 import '../initializer/initializer.dart';
 

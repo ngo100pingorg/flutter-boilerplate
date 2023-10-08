@@ -6,6 +6,14 @@ class L10n {
     Locale('en', 'US'),
     Locale('hi', 'IN'),
   ];
+
+  static String getLanguageTranslation(BuildContext context, String key) {
+    return {
+          'en': AppLocalizations.of(context)?.enLanguageName ?? 'English',
+          'hi': AppLocalizations.of(context)?.hiLanguageName ?? 'Hindi',
+        }[key] ??
+        'No key found!';
+  }
 }
 
 typedef TranslationProvider = String Function(AppLocalizations translations);

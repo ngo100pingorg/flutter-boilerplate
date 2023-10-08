@@ -10,7 +10,7 @@ class LocaleApi {
 
   final SharedPreferences _plugin;
 
-  Locale _locale = const Locale('en');
+  Locale _locale = const Locale('en', 'US');
   Locale get locale => _locale;
   set locale(Locale locale) {
     _setValue(kLanguageCodeCollectionKey, locale.languageCode);

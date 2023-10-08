@@ -1,3 +1,5 @@
+import 'package:log_api/log_api.dart';
+
 import 'config.dart';
 
 class AppConfig {
@@ -6,5 +8,9 @@ class AppConfig {
 
   AppConfig(Config configArg) {
     _config = configArg;
+    Log.setConfiguration(
+      enableConsoleLog: config.enableConsoleLog,
+      enableLocalLog: config.enableLocalLog,
+    );
   }
 }

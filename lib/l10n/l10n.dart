@@ -7,13 +7,12 @@ class L10n {
     Locale('hi', 'IN'),
   ];
 
-  static String getLanguageTranslation(BuildContext context, String key) {
-    return {
-          'en': AppLocalizations.of(context)?.enLanguageName ?? 'English',
-          'hi': AppLocalizations.of(context)?.hiLanguageName ?? 'Hindi',
-        }[key] ??
-        'No key found!';
-  }
+  static TranslationProvider getLanguageTranslations(String key) =>
+      {
+        'en': (AppLocalizations translations) => translations.enLanguageName,
+        'hi': (AppLocalizations translations) => translations.enLanguageName,
+      }[key] ??
+      (AppLocalizations translations) => 'No Translation Found!';
 }
 
 typedef TranslationProvider = String Function(AppLocalizations translations);

@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart';
 import 'package:universal_file/universal_file.dart';
 
@@ -21,6 +22,16 @@ class LocalLog {
     _successFile = UniversalFile("success-log.txt");
     _warningFile = UniversalFile("warning-log.txt");
     _errorFile = UniversalFile("error-log.txt");
+  }
+
+  @visibleForTesting
+  static Future<void> initForTest(UniversalFile file) async {
+    if (_initialized) return;
+    _initialized = true;
+    _infoFile = file;
+    _successFile = file;
+    _warningFile = file;
+    _errorFile = file;
   }
 
   static void info(

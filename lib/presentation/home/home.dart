@@ -55,7 +55,9 @@ class _LanguageSelectorState extends State<LanguageSelector>
               (locale) => DropdownMenuItem(
                 value: locale,
                 child: Text(
-                  L10n.getLanguageTranslation(context, locale.languageCode),
+                  L10n.getLanguageTranslations(locale.languageCode)(
+                    context.translations,
+                  ),
                 ),
               ),
             )

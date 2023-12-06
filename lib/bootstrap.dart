@@ -12,45 +12,43 @@ import 'presentation/app/app.dart';
 import 'presentation/app/app_bloc_observer.dart';
 
 Future<void> bootstrap() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  runZonedGuarded(
+    () async {
+      WidgetsFlutterBinding.ensureInitialized();
 
-  FlutterError.onError = (details) {
-    Log.danger(details.exceptionAsString(), data: details.stack);
-  };
+      Bloc.observer = AppBlocObserver();
 
-  // _();
+      final SharedPreferences sharedPreferences =
+          await SharedPreferences.getInstance();
 
-  Bloc.observer = AppBlocObserver();
+      final ThemeApi themeApi = ThemeApi(
+        plugin: sharedPreferences,
+      );
 
-  final ThemeApi themeApi = ThemeApi(
-    plugin: await SharedPreferences.getInstance(),
-  );
+      final LocaleApi localeApi = LocaleApi(
+        plugin: sharedPreferences,
+      );
 
-  final LocaleApi localeApi = LocaleApi(
-    plugin: await SharedPreferences.getInstance(),
-  );
-
-  runApp(
-    MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => ThemeBloc(themeAPI: themeApi)
-            ..add(
-              const InitThemeEvent(),
+      runApp(
+        MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              create: (context) => ThemeBloc(themeAPI: themeApi)
+                ..add(
+                  const InitThemeEvent(),
+                ),
             ),
+            BlocProvider(
+              create: (context) => LocaleBloc(localeApi: localeApi)
+                ..add(
+                  const InitLocaleEvent(),
+                ),
+            )
+          ],
+          child: const App(),
         ),
-        BlocProvider(
-          create: (context) => LocaleBloc(localeApi: localeApi)
-            ..add(
-              const InitLocaleEvent(),
-            ),
-        )
-      ],
-      child: const App(),
-    ),
+      );
+    },
+    (error, stack) => Log.danger(error.toString(), data: stack),
   );
-}
-
-void _() {
-  throw 'X';
 }

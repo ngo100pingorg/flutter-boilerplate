@@ -6,25 +6,27 @@ publish_to: "none"
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.18.2"
-  flutter: ">=3.3.4"
+  sdk: ">=3.1.3"
+  flutter: ">=3.13.6"
 
 dependencies:
   flutter:
     sdk: flutter
 
-  cupertino_icons: ^1.0.2
-  animations: ^2.0.7
+  cupertino_icons: ^1.0.6
+  animations: ^2.0.8
+
   # Date and Time
-  intl: ^0.17.0
-  # Console Log
-  colorize: ^3.0.0
+  intl: ^0.18.1
+
   # State management
   equatable: ^2.0.5
-  flutter_bloc: ^8.1.1
+  flutter_bloc: ^8.1.3
+
   # Localizations
   flutter_localizations:
     sdk: flutter
+
   # Local APIs
   locale_api:
     path: packages/locale_api
@@ -37,7 +39,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^2.0.0
+  flutter_lints: ^2.0.3
 
 flutter:
   uses-material-design: true

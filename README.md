@@ -1,7 +1,8 @@
-# [Flutter BLoC Boilerplate]((https://flutterboilerplate.ml))
+# [Flutter BLoC Boilerplate](https://flutterboilerplate.0161803.xyz/)
+
 > Speed up your development
 
-## [Documentation](https://flutterboilerplate.ml)
+## [Documentation](https://flutterboilerplate.0161803.xyz/)
 
 ⚡️ Feel the speed -> We help you skip all the hurdles you face when starting a new flutter project.
 
@@ -20,27 +21,26 @@ We wish to constantly update a boilerplate that concisely provides valuable info
 The primary advantage of using boilerplate code is that it reduces your initial software development time by reusing basic components. It also reduces complexity in your code, which may result in cleaner code. `If your product is built on boilerplate code, there will be no learning curve for new programmers who have previously worked with boilerplate code thus we suggest let your programmers go through the code and documentation of boilerplate`.
 
 - Features available:
-    - Log library
-        - Console
-        - Locally in device - universal_file package for file management in different devices 
-    - Flavors
-        - Environments
-        - App Config
-    - Dynamic Theme
-        - BLoC for Theme package
-
+  - Log library
+    - Console
+    - Locally in device - universal_file package for file management in different devices
+  - Flavors
+    - Environments
+    - App Config
+  - Dynamic Theme
+    - BLoC for Theme package
 - Features to be added:
-    - Background Fetch Support
-    - Connectivity Support
-    - Continuous integration services
-    - Crashlytics
-    - Dependency Injection
-    - Encryption and Decryption of dat
-    - Local database
-    - Localization and internationalization
-    - Notifications
-    - Route management & tracking
-    - Splash
-    - Stores maybe
-    - Unit, Widget, Integration Tests
-    - Validators
+  - Background Fetch Support
+  - Connectivity Support
+  - Continuous integration services
+  - Crashlytics
+  - Dependency Injection
+  - Encryption and Decryption of dat
+  - Local database
+  - Localization and internationalization
+  - Notifications
+  - Route management & tracking
+  - Splash
+  - Stores maybe
+  - Unit, Widget, Integration Tests
+  - Validators
